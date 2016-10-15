@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+<!--   
   <servlet>
   	<servlet-name>findEmp</servlet-name>
   	<servlet-class>web.FindEmpServlet</servlet-class>
@@ -19,4 +19,21 @@
   	<url-pattern>/findEmp</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>addEmp</servlet-name>
+  	<servlet-class>web.AddEmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addEmp</servlet-name>
+  	<url-pattern>/addEmp</url-pattern>
+  </servlet-mapping> 
+ -->
+ 	<servlet>
+ 		<servlet-name>main</servlet-name>
+ 		<servlet-class>web.MainServlet</servlet-class>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>main</servlet-name>
+ 		<url-pattern>*.do</url-pattern>
+ 	</servlet-mapping>
 </web-app>
