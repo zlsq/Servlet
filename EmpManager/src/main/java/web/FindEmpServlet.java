@@ -24,6 +24,7 @@ public class FindEmpServlet extends HttpServlet {
 		//3.输出响应信息
 		res.setContentType("text/html;charset=utf-8");
 		PrintWriter out = res.getWriter();
+		out.println("<a href='add_emp.html'>增加</a>");
 		out.println("<table width='40%' border='1' cellspacing='0'>");
 		out.println("	<tr>");
 		out.println("		<th>编号</th>");

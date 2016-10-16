@@ -31,4 +31,7 @@ public class EmpDao implements Serializable {
 		list.add(e3);
 		return list;
 	}
+	public void save(Emp e) {
+		System.out.println("新增员工数据:" + e);
+	}
 }
