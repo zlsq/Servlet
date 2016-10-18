@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class HiServlet extends HttpServlet{
-	//1.默认首次访问实例化
-	//2.默认配置后在启动tomcat时实例化
-	public HiServlet(){
+public class HiServlet extends HttpServlet {
+	
+	//1.默认首次访问时实例化
+	//2.修改配置后在启动tomcat时实例化
+	public HiServlet() {
 		System.out.println("实例化HiServlet");
 	}
 
@@ -22,9 +23,11 @@ public class HiServlet extends HttpServlet{
 		System.out.println("初始化HiServlet");
 	}
 
-	//每次访问都能调用
+	//每次访问都可以调用
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void service(
+		HttpServletRequest req, 
+		HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("调用HiServlet");
 	}
 
@@ -36,4 +39,21 @@ public class HiServlet extends HttpServlet{
 	}
 	
 	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

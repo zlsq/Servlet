@@ -209,3 +209,102 @@
 - 有默认构造器
 - 实现序列化接口
 - 有get/set方法
+
+
+# 一、重定向
+## 1.重定向在增加员工中的应用
+```java
+response.sendRedirect(String url);
+```
+![](8.png)
+
+
+## 2.重定向的作用及原理
+![](9.png)
+在重定向的过程中，影响浏览器做出动作的关键点即响应中的状态码及Location这个消息头。302状态就像一道命令一样，使得浏览器做出新的一次请求，而请求的地址会从头信息中查找。由于这个新的请求动作是由浏览器发出的，所以浏览器的地址栏上的地址会变成Location消息头中的地址。
+
+# 二、路径
+## 1.路径是什么
+![](10.png)
+
+## 2.如何获取路径
+- 项目名：req.getContextPath()
+- Servlet路径：req.getServletPath()
+- 绝对路径：req.getRequestURI()
+- 完整路径：req.getRequestURL()
+
+## 3.URI(Uniform Resource Identifier)和URL(Uniform Resource Locator)的区别
+### 1)狭义的理解(Java项目)
+- URI(统一资源标识符)是绝对路径，而URL是完整路径
+- URL(全球资源定位器)包含了URI
+
+### 2)广义的理解(Web项目) *
+- URI是资源的名字
+- URL是资源的真名
+- URI包含了URL
+> 真名只有一个，名字可以有多个
+
+## 4.Servlet访问路径的配置方案
+### 1)精确匹配(/hello)
+- 只有这一个路径可以访问此Servlet
+- 此Servlet只能处理一个请求
+
+### 2)通配符(/*)
+- 所有的路径都可以访问此Servlet
+- 此Servlet能处理所有请求
+
+### 3)后缀(*.abc)
+- 所有以abc为后缀的路径都可以访问此Servlet
+- 此Serlvet能处理多个请求
+
+### 4)用1个Servlet处理多个请求的方案
+![](11.png)
+
+### 5)通配符和后缀的典型应用场景
+![](12.png)
+
+# 三、Servlet生命周期
+Servlet容器如何创建Servlet对象、如何为Servlet对象分配、准备资源、如何调用对应的方法来处理请求以及如何销毁Servlet对象的整个过程即Servlet的生命周期。
+## 1.生命周期相关方法的调用顺序
+![](13.png)
+###阶段一、实例化
+```
+<servlet>
+    <servlet-name>someServlet</servlet-name>
+    <servlet-class>test/SomeServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping> 
+    <servlet-name>someServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+</servlet-mapping>
+```
+
+配置文件中的**load-on-startup**节点用于设置该Servlet的创建时机。
+当其中的值**大于等于0**时，表示容器在启动时就会创建实例
+**小于0时或没有指定**时，代表容器在该Servlet被请求时再执行**创建
+正数的值越小，优先级越高，应用启动时就越先被创建。**
+
+###阶段二、初始化
+
+在初始化阶段，init（）方法会被调用。这个方法在javax.servlet.Servlet接口中定义。其中，方法以一个ServletConfig类型的对象作为参数。ServletConfig对象由Servlet引擎负责创建，从中可以读取到事先在web.xml文件中通过<init-param>节点配置的多个name-value名值对。ServletConfig对象还可以让Servlet接受一个ServletContext对象。
+一般情况下，init方法不需要编写，因GenericServlet已经提供了init方法的实现，并且提供了getServletConfig方法来获得ServletConfig对象。
+**注：init方法只被执行一次。**
+
+###阶段三、就绪
+
+Servlet被初始化以后就处于能够响应请求的就绪状态。每个对Servlet的请求由一个ServletRequest对象代表，Servlet给客户端的响应由一个ServletResponse对象代表。当客户端有一个请求时，容器就会将请求与响应对象转给Servlet，以参数的形式传给service方法。service方法由javax.servlet.Servlet定义，由具体的Servlet实现。
+
+###阶段四、销毁
+
+Servlet容器在销毁Servlet对象时会调用destroy方法来释放资源。通常情况下Servlet容器停止或者重新启动都会引起销毁Servlet对象的动作，但除此之外，Servlet容器也有自身管理Servlet对象的准则，整个生命周期并不需要人为进行干预。
+
+## 2.config和context的联系和区别
+![](14.png)
+
+## 3.ServletConfig
+![](15.png)
+
+## 4.ServletContext
+![](16.png)
+
