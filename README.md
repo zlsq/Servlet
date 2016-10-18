@@ -1,4 +1,4 @@
-# Servlet 入门学习
+# Servlet 基础学习
 # 一、WEB应用的发展
 ## 1.规律
 - 由单机程序向网络程序发展
@@ -476,3 +476,37 @@ public void fun(){
 <%String user = request.getParameter("user");%>
 <%=request.getParameter("user")%>
 ```
+
+
+# 一、开发模式
+## 1. Model 1
+- 使用一个组件(Servlet/JSP)处理请求
+- 缺点：该组件将java和HTML高度耦合在一起
+![](23.png)
+
+## 2. Model 2(MVC)
+- 使用2个组件协同处理请求
+- 优点：将java和HTML代码解耦
+![](24.png)
+
+# 二、转发和重定向
+## 1.它们的相同点
+- 都是用来解决web组件之间的跳转问题
+- web组件：Servlet/JSP
+
+## 2.它们的区别
+![](25.png)
+
+## 3.它们的一般使用场景
+- 一般查询时从查询Servlet转发到查询JSP
+- 一般增加、修改、删除(Servlet)后重定向到查询(Servlet)
+
+# 三、EL和JSTL
+## 1.作用
+![](26.png)
+
+## 2.案例
+![](27.png)
+
+## 3.JSTL运行原理
+![](28.png)
