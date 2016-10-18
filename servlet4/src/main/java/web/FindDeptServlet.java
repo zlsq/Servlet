@@ -24,6 +24,15 @@ public class FindDeptServlet extends HttpServlet {
 			context.getInitParameter("size");
 		System.out.println(size);
 		System.out.println("分页查询部门");
+		
+		//统计网站流量
+		ServletContext ctx = 
+			getServletContext();
+		Integer count = (Integer)
+			ctx.getAttribute("count");
+		ctx.setAttribute("count", ++count);
+		System.out.println(count);
+		
 	}
 
 	
