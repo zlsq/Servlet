@@ -3,12 +3,10 @@ package entity;
 import java.io.Serializable;
 
 public class Emp implements Serializable{
-
 	private Integer empno;
 	private String ename;
 	private String job;
 	private Double sal;
-	
 	public Integer getEmpno() {
 		return empno;
 	}
@@ -33,10 +31,4 @@ public class Emp implements Serializable{
 	public void setSal(Double sal) {
 		this.sal = sal;
 	}
-	
 }
-
-
-
-
-

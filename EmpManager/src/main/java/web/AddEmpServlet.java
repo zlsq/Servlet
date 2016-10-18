@@ -11,12 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import dao.EmpDao;
 import entity.Emp;
 
-public class AddEmpServlet extends HttpServlet {
+public class AddEmpServlet extends  HttpServlet{
 
 	@Override
-	protected void service(
-		HttpServletRequest req, 
-		HttpServletResponse res) throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//接收表单数据
 		req.setCharacterEncoding("utf-8");
 		String ename = req.getParameter("ename");
@@ -26,30 +24,23 @@ public class AddEmpServlet extends HttpServlet {
 		Emp e = new Emp();
 		e.setEname(ename);
 		e.setJob(job);
-		if(sal != null && !sal.equals("")) {
+		if(sal != null && !sal.equals("")){
 			e.setSal(new Double(sal));
 		}
 		EmpDao dao = new EmpDao();
 		dao.save(e);
-		//发送响应信息
-//		res.setContentType(
-//			"text/html;charset=utf-8");
+		
+		
+		//发送响应数据
+//		res.setContentType("text/HTML;charset=utf-8");
 //		PrintWriter out = res.getWriter();
 //		out.println("<p>保存成功</p>");
 //		out.close();
-		//重定向到查询页面
-		//重定向：一种特殊的跳转方式
-		//当前路径:/EmpManager/addEmp
+		//重定向到长沙讯页面
+		//重定向:一种特殊的跳转方式
+		//当前访问路径:/EmpManager/addEmp
 		//目标路径:/EmpManager/findEmp
 		res.sendRedirect("findEmp");
 	}
-
-	
 	
 }
-
-
-
-
-
-

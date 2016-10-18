@@ -13,7 +13,7 @@
   <servlet>
   	<servlet-name>hi</servlet-name>
   	<servlet-class>web.HiServlet</servlet-class>
-  	<!-- 启动tomcat时第1个实例化此Servlet -->
+  	<!-- 启动tomcat时第一个实例化此Servlet -->
   	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -24,9 +24,7 @@
   <servlet>
   	<servlet-name>login</servlet-name>
   	<servlet-class>web.LoginServlet</servlet-class>
-  	<!-- 给此Servlet预置一个私有的参数，
-  		其他Servlet无法访问。该参数由此Servlet
-  		对应的config对象自动读取。 -->
+  	<!-- 给次Servlet预置一个私有的参数,其他Servlet无法访问.该参数由此Servlet对应的config对象自动读取 -->
   	<init-param>
   		<param-name>maxOnline</param-name>
   		<param-value>3000</param-value>
@@ -45,19 +43,9 @@
   	<servlet-name>findDept</servlet-name>
   	<url-pattern>/findDept</url-pattern>
   </servlet-mapping>
-  
-  <!-- 给所有的Servlet预置的参数，
-  		在tomcat启动时由context自动读取。 -->
+  <!-- 给所有的Servlet预置的参数,在tomcat启动时由context自动读取 -->
   <context-param>
   	<param-name>size</param-name>
   	<param-value>10</param-value>
   </context-param>
-  
 </web-app>
-
-
-
-
-
-
-

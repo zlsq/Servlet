@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
   	<servlet-name>hello</servlet-name>
   	<servlet-class>web.HelloServlet</servlet-class>
@@ -20,18 +19,7 @@
   	<!-- <url-pattern>/hello</url-pattern> -->
   	<!-- 2.通配符 -->
   	<!-- <url-pattern>/*</url-pattern> -->
-  	<!-- 3.后缀：不以/开头 -->
+  	<!-- 3.后缀:不以斜线开头 -->
   	<url-pattern>*.duang</url-pattern>
   </servlet-mapping>
-  
 </web-app>
-
-
-
-
-
-
-
-
-
-

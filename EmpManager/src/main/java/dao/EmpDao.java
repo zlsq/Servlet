@@ -7,10 +7,8 @@ import java.util.List;
 import entity.Emp;
 
 public class EmpDao implements Serializable {
-
-	public List<Emp> findAll() {
+	public List<Emp> findAll(){
 		List<Emp> list = new ArrayList<Emp>();
-		
 		Emp e1 = new Emp();
 		e1.setEmpno(1);
 		e1.setEname("唐僧");
@@ -31,22 +29,9 @@ public class EmpDao implements Serializable {
 		e3.setJob("徒弟");
 		e3.setSal(6000.0);
 		list.add(e3);
-		
 		return list;
 	}
-	
 	public void save(Emp e) {
-		System.out.println(
-			"新增员工数据:" + e);
+		System.out.println("新增员工数据:" + e);
 	}
-	
 }
-
-
-
-
-
-
-
-
-
