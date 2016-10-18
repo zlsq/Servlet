@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+    
+  <description>LHH library</description>
+  <display-name>LHH</display-name>
+  <tlib-version>3.1</tlib-version>
+  <short-name>s</short-name>
+  <uri>/lhh-tags</uri>
+  
+  <tag>
+  	<description>
+  		这是一个非常NB的标签，它能给浏览器
+  		输出当前服务器的时间，并且时间的格式
+  		还可以任意指定，太神奇了。
+  	</description>
+  	<name>sysdate</name>
+  	<tag-class>web.SysdateTag</tag-class>
+  	<!-- 声明标签可以包含的内容 -->
+  	<body-content>empty</body-content>
+  	<attribute>
+  		<description>
+  			通过该属性设置时间的格式
+  		</description>
+  		<!-- 此处设置的是bean属性，
+  			tomcat通过set方法设置值。 -->
+  		<name>format</name>
+  		<!-- 该属性是否必须设置 -->
+  		<required>false</required>
+  		<!-- 是否允许使用EL为该属性赋值 -->
+  		<rtexprvalue>true</rtexprvalue>
+  		<type>java.lang.String</type>
+  	</attribute>
+  </tag>
+    
+</taglib>
+
+
+
