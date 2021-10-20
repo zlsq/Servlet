@@ -1,5 +1,7 @@
+//Here is the Simple Program to print the Date of System
+
 <%@page pageEncoding="utf-8"%>
-<!-- 1.先写HTML -->
+<!-- Start HTML -->
 <!doctype html>
 <html>
 	<head>
